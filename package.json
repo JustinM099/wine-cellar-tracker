@@ -1,0 +1,25 @@
+{
+  "name": "wine-cellar-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JustinM099/wine-cellar-tracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JustinM099/wine-cellar-tracker/issues"
+  },
+  "homepage": "https://github.com/JustinM099/wine-cellar-tracker#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "handlebars": "^4.7.7",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.12.0"
+  }
+}
