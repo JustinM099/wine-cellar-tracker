@@ -5,7 +5,7 @@ const sequelize = require('../config/connection');
 
 // Name of Producer. Vintage. Varietal/Blend. Region. Name of Wine. Tasting Notes. Reviews. Red/White/Rose/Sparkling. Cellar Location. Number of Bottles.
 // Initialize Product model (table) by extending off Sequelize's Model class
-class Product extends Model {}
+class Bottle extends Model {}
 
 // set up fields and rules for Product model
 Bottle.init(
@@ -52,4 +52,4 @@ Bottle.init(
   }
 );
 
-module.exports = Product;
+module.exports = Bottle;
