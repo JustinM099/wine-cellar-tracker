@@ -19,7 +19,7 @@ const bottleData = [
 const seedBottles = () => Bottle.bulkCreate(bottleData);
 
 module.exports = seedBottles;
-
+ 
 
 
 

@@ -19,7 +19,7 @@ const categoryData = [
   {
     category_name: 'Syrah',
   },
-  {
+  { 
     category_name: 'Grenache',
   },
   {
