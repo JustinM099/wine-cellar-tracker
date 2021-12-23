@@ -46,7 +46,7 @@ sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
 
-
+// added for nodemailer
 app.get('/', (req, res) => {
   res.render('contact');
 });
