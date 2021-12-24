@@ -1,6 +1,7 @@
 // import models
 const Bottle = require('./Bottle');
 const Category = require('./Category');
+const User = require('./User')
 
 // Bottle belongsTo Category
 Bottle.belongsTo(Category, {
@@ -14,5 +15,6 @@ Category.hasMany(Bottle, {
 module.exports = {
   Bottle,
   Category,
+  User,
 };
  
