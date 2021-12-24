@@ -1,5 +1,6 @@
 const seedCategories = require('./category-seeds');
 const seedBottles = require('./bottle-seeds');
+const seedUsers = require('./user-seeds')
 // const seedBottleCategories = require('./bottle-category-seeds');
 
 const sequelize = require('../config/connection');
@@ -12,6 +13,9 @@ const seedAll = async () => {
 
   await seedBottles();
   console.log('\n----- BOTTLES SEEDED -----\n');
+
+  await seedUsers();
+  console.log('\n--------USERS SEEDED---------\n')
 
   // await seedBottleCategories();
   // console.log('\n----- BOTTLE CATEGORIES SEEDED -----\n');
