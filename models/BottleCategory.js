@@ -3,9 +3,9 @@ const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection');
 
-class ProductTag extends Model {}
+class BottleCategory extends Model {}
 
-ProductTag.init(
+BottleCategory.init(
   {
     // define columns
     id: {
@@ -14,20 +14,20 @@ ProductTag.init(
       primaryKey: true,
       autoIncrement: true
     },
-    product_id: {
+    bottle_id: {
       type: DataTypes.INTEGER,
       // references product model's ID
       references: {
-        model: 'product',
+        model: 'bottle',
         key: 'id',
         unique: 'false'
       }
     },
-    tag_id: {
+    category_id: {
       type: DataTypes.INTEGER,
       //references tag model's ID
       references: {
-        model: 'tag',
+        model: 'category',
         key: 'id',
         unique: 'false'
       }
@@ -38,8 +38,8 @@ ProductTag.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'product_tag',
+    modelName: 'bottle_category',
   }
 );
 
-module.exports = ProductTag;
+module.exports = BottleCategory;
