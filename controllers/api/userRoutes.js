@@ -1,8 +1,7 @@
 const router = require('express').Router();
-const { User } = require('../../models/User');
+const User = require('../../models/User');
 
-
-//create new user
+// create new user
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create({
@@ -22,11 +21,12 @@ router.post('/', async (req, res) => {
   }
 });
 
+// login user
 router.post('/login', async (req, res) => {
   try {
     // TODO: Add a comment describing the functionality of this expression
     const userData = await User.findOne({ where: { email: req.body.email } });
-
+    console.log('userData', userData);
     if (!userData) {
       res
         .status(400)
@@ -36,7 +36,7 @@ router.post('/login', async (req, res) => {
 
     // TODO: Add a comment describing the functionality of this expression
     const validPassword = await userData.checkPassword(req.body.password);
-
+    console.log('validPassowrd', validPassword);
     if (!validPassword) {
       res
         .status(400)
@@ -52,6 +52,7 @@ router.post('/login', async (req, res) => {
       res.json({ user: userData, message: 'You are now logged in!' });
     });
   } catch (err) {
+    console.log('err!!!', err);
     res.status(400).json(err);
   }
 });
