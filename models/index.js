@@ -12,6 +12,8 @@ Category.hasMany(Bottle, {
   foreignKey: 'category_id'
 })
 
+
+
 module.exports = {
   Bottle,
   Category,

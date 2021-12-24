@@ -1,19 +1,17 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User, Bottle } = require('../models');
 const withAuth = require('../utils/auth');
+
 
 // TODO: Add a comment describing the functionality of the withAuth middleware
 router.get('/', withAuth, async (req, res) => {
   try {
-    const userData = await User.findAll({
-      attributes: { exclude: ['password'] },
-      //  order: [['username', 'ASC']],
-    });
+    const bottleData = await Bottle.findAll();
 
-    const users = userData.map((project) => project.get({ plain: true }));
+    const bottles = bottleData.map((project) => project.get({ plain: true }));
 
     res.render('homepage', {
-      users,
+      bottles,
       // TODO: Add a comment describing the functionality of this property
       logged_in: req.session.logged_in,
     });

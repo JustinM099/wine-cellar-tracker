@@ -1,3 +1,16 @@
 <div class='row align-center mb-5'>
-  TEST
+<div class="container">
+    {{#each bottles as |bottle|}}
+    <div class="card">
+        <div>
+            <span class="card-title">{{bottle.producer_name}}</span>
+            <hr>
+            <br>
+            <p class="center-align">{{bottle.vintage}}</p>
+            <br>
+            <div class="card-action">{{bottle.stock}}</div>
+        </div>
+    </div>
+    {{/each}}
+</div>
 </div>
