@@ -7,7 +7,7 @@ const sequelize = require('../config/connection');
 // Initialize Product model (table) by extending off Sequelize's Model class
 class Bottle extends Model {}
 
-// set up fields and rules for Product model
+// set up fields and rules for Bottle model
 Bottle.init(
   {
     // define columns
@@ -34,7 +34,6 @@ Bottle.init(
     },
     variety: {
       type: DataTypes.STRING,
-      allowNull: false
     },
     region: {
       type: DataTypes.STRING,
@@ -55,8 +54,6 @@ Bottle.init(
     cellar_location: {
       type: DataTypes.STRING,
     },
-
-
     category_id: {
       type: DataTypes.INTEGER,
       //references the Category model's ID
@@ -64,14 +61,21 @@ Bottle.init(
         model: 'category',
         key: 'id',
       }
-    }
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id',
+      }
+    },
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'product',
+    modelName: 'bottle',
   }
 );
 

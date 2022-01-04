@@ -6,6 +6,7 @@ const seedUsers = require('./user-seeds')
 const sequelize = require('../config/connection');
 
 const seedAll = async () => {
+  try{
   await sequelize.sync({ force: true });
   console.log('\n----- DATABASE SYNCED -----\n');
   await seedCategories();
@@ -16,6 +17,9 @@ const seedAll = async () => {
 
   await seedUsers();
   console.log('\n--------USERS SEEDED---------\n')
+  }catch(err){
+    console.log(err)
+  }
 
   // await seedBottleCategories();
   // console.log('\n----- BOTTLE CATEGORIES SEEDED -----\n');
