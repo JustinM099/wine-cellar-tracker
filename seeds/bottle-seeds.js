@@ -10,7 +10,8 @@ const bottleData = [
         style: 'red',
         cellar_location: 'B01',
         quantity: 12,
-        category_id: 1
+        category_id: 1,
+        user_id: 1
 
     },
 
