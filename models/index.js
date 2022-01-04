@@ -12,6 +12,12 @@ Category.hasMany(Bottle, {
   foreignKey: 'category_id'
 })
 
+Bottle.belongsTo(User, {
+  foreignKey: 'user_id'
+})
+User.hasMany(Bottle, {
+  foreignKey: 'user_id'
+})
 
 
 module.exports = {
