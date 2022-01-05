@@ -13,7 +13,6 @@ router.get('/', withAuth, async (req, res) => {
         },
         {
           model: Category,
-          attributes: ['id'],
         },
       ],
       where: {
