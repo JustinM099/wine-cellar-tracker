@@ -1,26 +1,25 @@
 const router = require('express').Router();
-const { User, Bottle } = require('../models');
+const { User, Bottle, Category } = require('../models');
 const withAuth = require('../utils/auth');
-
 
 // TODO: Add a comment describing the functionality of the withAuth middleware
 router.get('/', withAuth, async (req, res) => {
   try {
     const bottleData = await Bottle.findAll({
-      where: {
-          user_id: req.session.user_id
-      },
       include: [
-          {
-              model: User,
-              attributes: ['id', 'username']
-          },
-          {
-              model: Category,
-              attributes: ['id']
-          }
-      ]
-  });
+        {
+          model: User,
+          attributes: ['id', 'username'],
+        },
+        {
+          model: Category,
+          attributes: ['id'],
+        },
+      ],
+      where: {
+        user_id: req.session.user_id,
+      },
+    });
 
     const bottles = bottleData.map((bottle) => bottle.get({ plain: true }));
 
