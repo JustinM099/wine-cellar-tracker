@@ -49,11 +49,37 @@ router.get('/add', withAuth, (req, res) => {
   });
 });
 
-router.get('/update', withAuth, (req, res) => {
-  res.render('editbottle', {
-    logged_in: req.session.logged_in,
-    user_id: req.session.user_id,
-  });
+router.get('/update/:id', withAuth, async (req, res) => {
+  console.log('entering update');
+  try {
+    const bottleData = await Bottle.findOne({
+      include: [
+        {
+          model: User,
+          attributes: ['id', 'username'],
+        },
+        {
+          model: Category,
+        },
+      ],
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    console.log('bottleData!!!', bottleData);
+
+    const bottle = bottleData.get({ plain: true });
+
+    res.render('editbottle', {
+      bottle,
+      // TODO: Add a comment describing the functionality of this property
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;
