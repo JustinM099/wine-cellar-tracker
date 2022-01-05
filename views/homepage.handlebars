@@ -1,28 +1,3 @@
-<div class='row align-center mb-5'>
-  <div class='container'>
-    {{#each bottles as |bottle|}}
-      <div class='card'>
-        <div>
-          <span class='card-title'>{{bottle.producer_name}}</span>
-          <hr />
-          <br />
-          <p class='center-align'>{{bottle.vintage}}</p>
-          <br />
-          <p class='center-align'>{{bottle.variety}}</p>
-          <p class='center-align'>{{bottle.region}}</p>
-          <p class='center-align'>{{bottle.wine_name}}</p>
-          <p class='center-align'>{{bottle.tasting_notes}}</p>
-          <p class='center-align'>{{bottle.reviews}}</p>
-          <p class='center-align'>{{bottle.wine_type}}</p>
-          <p class='center-align'>{{bottle.cellar_location}}</p>
-          <p class='center-align'>{{bottle.category.category_name}}</p>
-          <div class='card-action'>{{bottle.stock}}</div>
-        </div>
-      </div>
-    {{/each}}
-  </div>
-</div>
-
 {{#each bottles as |bottle|}}
   <div class='card'>
     <div class='card-header'>
