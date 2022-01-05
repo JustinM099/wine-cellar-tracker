@@ -22,6 +22,10 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
+router.get('/addBottle', async (req, res) => {
+  res.render("addBottle")
+})
+
 router.get('/login', (req, res) => {
   // TODO: Add a comment describing the functionality of this if statement
   if (req.session.logged_in) {
