@@ -1,24 +1,52 @@
 <div class='row align-center mb-5'>
-<div class="container">
+  <div class='container'>
     {{#each bottles as |bottle|}}
-    <div class="card">
+      <div class='card'>
         <div>
-            <span class="card-title">{{bottle.producer_name}}</span>
-            <hr>
-            <br>
-            <p class="center-align">{{bottle.vintage}}</p>
-            <br>
-            <p class="center-align">{{bottle.variety}}</p>
-            <p class="center-align">{{bottle.region}}</p>
-            <p class="center-align">{{bottle.wine_name}}</p>
-            <p class="center-align">{{bottle.tasting_notes}}</p>
-            <p class="center-align">{{bottle.reviews}}</p>
-            <p class="center-align">{{bottle.wine_type}}</p>
-            <p class="center-align">{{bottle.cellar_location}}</p>
-            <p class="center-align">{{bottle.category.category_name}}</p>
-            <div class="card-action">{{bottle.stock}}</div>
+          <span class='card-title'>{{bottle.producer_name}}</span>
+          <hr />
+          <br />
+          <p class='center-align'>{{bottle.vintage}}</p>
+          <br />
+          <p class='center-align'>{{bottle.variety}}</p>
+          <p class='center-align'>{{bottle.region}}</p>
+          <p class='center-align'>{{bottle.wine_name}}</p>
+          <p class='center-align'>{{bottle.tasting_notes}}</p>
+          <p class='center-align'>{{bottle.reviews}}</p>
+          <p class='center-align'>{{bottle.wine_type}}</p>
+          <p class='center-align'>{{bottle.cellar_location}}</p>
+          <p class='center-align'>{{bottle.category.category_name}}</p>
+          <div class='card-action'>{{bottle.stock}}</div>
         </div>
-    </div>
+      </div>
     {{/each}}
+  </div>
 </div>
-</div>
+
+{{#each bottles as |bottle|}}
+  <div class='card'>
+    <div class='card-header'>
+      {{bottle.producer_name}}
+    </div>
+    <div class='card-body'>
+      <h5 class='card-title'>
+        <span
+          class='badge rounded-pill bg-primary'
+          title='Stock count'
+        >{{bottle.stock}}</span>
+        {{bottle.vintage}}
+        {{bottle.wine_name}}
+      </h5>
+      <p>{{bottle.region}}
+        {{bottle.category.category_name}}
+        {{bottle.wine_type}}
+      </p>
+      <p class='card-text'><strong>Notes: </strong> {{bottle.tasting_notes}}</p>
+      <p class='card-text'><strong>Reviews: </strong> {{bottle.reviews}}</p>
+      <p class='card-text'><strong>Cellar location:</strong>
+        {{bottle.cellar_location}}</p>
+      <a href='#' class='btn btn-primary'>Update
+      </a>
+    </div>
+  </div>
+{{/each}}
