@@ -32,9 +32,6 @@ Bottle.init(
         isNumeric: true
       }
     },
-    variety: {
-      type: DataTypes.STRING,
-    },
     region: {
       type: DataTypes.STRING,
       allowNull: false
