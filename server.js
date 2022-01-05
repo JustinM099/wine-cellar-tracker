@@ -4,6 +4,7 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
+console.log(' PR testing!')
 // added for nodemailer
 // const bodyParser = require('body-parser');
 // const nodemailer = require('nodemailer');
