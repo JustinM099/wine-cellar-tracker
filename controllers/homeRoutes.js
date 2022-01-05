@@ -42,4 +42,18 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.get('/add', withAuth, (req, res) => {
+  res.render('addbottle', {
+    logged_in: req.session.logged_in,
+    user_id: req.session.user_id,
+  });
+});
+
+router.get('/update', withAuth, (req, res) => {
+  res.render('editbottle', {
+    logged_in: req.session.logged_in,
+    user_id: req.session.user_id,
+  });
+});
+
 module.exports = router;

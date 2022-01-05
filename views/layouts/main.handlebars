@@ -18,7 +18,7 @@
   <body>
     <nav class='navbar navbar-light bg-light px-3'>
 
-      <a class='navbar-brand' href='#'>
+      <a class='navbar-brand' href='/'>
         <img
           src='images/logo.png'
           alt='wine logo'
@@ -30,6 +30,7 @@
 
       <div>
         {{#if logged_in}}
+          <a class='btn-no-style' href='/add'>Add bottle</a>
           <a id='logout' class='btn-no-style'>Logout</a>
         {{else}}
           <a href='/login'>Login</a>
