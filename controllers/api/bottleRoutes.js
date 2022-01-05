@@ -14,11 +14,15 @@ router.get('/'), withAuth, async (req, res) => {
                 {
                     model: User,
                     attributes: ['id', 'username']
+                },
+                {
+                    model: Category,
+                    attributes: ['id']
                 }
             ]
         })
         const bottles = bottleData.map(bottle => bottle.get({ plain: true }))
-        res.render('placeholder', { bottles, loggedIn: true }) //TODO: insert handlebars where it says 'placeholder'
+        res.render('homepage', { bottles, loggedIn: true }) //TODO: insert handlebars where it says 'placeholder'
     } catch (err) {
         console.log('err', err)
         res.status(500).json(err)

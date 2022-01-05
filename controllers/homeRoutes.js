@@ -6,9 +6,23 @@ const withAuth = require('../utils/auth');
 // TODO: Add a comment describing the functionality of the withAuth middleware
 router.get('/', withAuth, async (req, res) => {
   try {
-    const bottleData = await Bottle.findAll();
+    const bottleData = await Bottle.findAll({
+      where: {
+          user_id: req.session.user_id
+      },
+      include: [
+          {
+              model: User,
+              attributes: ['id', 'username']
+          },
+          {
+              model: Category,
+              attributes: ['id']
+          }
+      ]
+  });
 
-    const bottles = bottleData.map((project) => project.get({ plain: true }));
+    const bottles = bottleData.map((bottle) => bottle.get({ plain: true }));
 
     res.render('homepage', {
       bottles,
