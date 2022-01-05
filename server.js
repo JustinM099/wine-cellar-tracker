@@ -4,6 +4,7 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
+console.log(' PR testing!')
 // added for nodemailer
 // const bodyParser = require('body-parser');
 // const nodemailer = require('nodemailer');
@@ -42,10 +43,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
-sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
-});
-
 // added for nodemailer
 app.get('/', (req, res) => {
   res.render('contact');
@@ -55,4 +52,10 @@ app.get('/', (req, res) => {
   res.send('');
 });
 
-app.listen(3000, () => console.log('server started'));
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log('Now listening'));
+});
+
+
+
+// app.listen(3000, () => console.log('server started'));
