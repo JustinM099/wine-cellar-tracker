@@ -7,11 +7,13 @@ const bottleData = [
         vintage: 1961,
         region: 'Bordeaux',
         tasting_notes: 'Old band-aid and pencil shavings. 100 points.',
-        style: 'red',
+        wine_type: 'red',
         cellar_location: 'B01',
-        quantity: 12,
+        stock: 12,
         category_id: 1,
-        user_id: 1
+        user_id: 1,
+        reviews: '99 Points Wine Advocate',
+        wine_name: 'Grand Vin'
 
     },
 
