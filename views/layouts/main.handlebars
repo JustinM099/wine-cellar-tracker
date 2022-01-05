@@ -16,20 +16,27 @@
     <link rel='icon' type='image/x-icon' href='/favicon.ico' />
   </head>
   <body>
-    <nav class='navbar navbar-light bg-light'>
-      <div class='container-fluid'>
-        <a class='navbar-brand' href='#'>
-          <img
-            src='images/logo.png'
-            alt='wine logo'
-            height='24'
-            class='d-inline-block align-text-top'
-          />
-          Wine Cellar Tracker
-        </a>
+    <nav class='navbar navbar-light bg-light px-3'>
+
+      <a class='navbar-brand' href='#'>
+        <img
+          src='images/logo.png'
+          alt='wine logo'
+          height='24'
+          class='d-inline-block align-text-top'
+        />
+        Wine Cellar Tracker
+      </a>
+
+      <div>
+        {{#if logged_in}}
+          <a id='logout' class='btn-no-style'>Logout</a>
+        {{else}}
+          <a href='/login'>Login</a>
+        {{/if}}
       </div>
     </nav>
-    <main class='container'>
+    <main class='container pt-4'>
       <!-- Content here -->
       {{{body}}}
     </main>
@@ -43,6 +50,8 @@
       integrity='sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p'
       crossorigin='anonymous'
     ></script>
-
+    {{#if logged_in}}
+      <script src='/js/logout.js'></script>
+    {{/if}}
   </body>
 </html>

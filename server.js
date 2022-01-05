@@ -4,6 +4,9 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
+// added for nodemailer
+// const bodyParser = require('body-parser');
+// const nodemailer = require('nodemailer');
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -19,21 +22,39 @@ const sess = {
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
-    db: sequelize
-  })
+    db: sequelize,
+  }),
 };
 
 app.use(session(sess));
-
+// added for nodemailer
+// app.engine('handlebars', exphbs());
+// view engine setup
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+// body parser middleware
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
 
 app.use(routes);
 
-//sequelize.sync({ force: false }).then(() => {
+// added for nodemailer
+app.get('/', (req, res) => {
+  res.render('contact');
+});
+
+app.get('/', (req, res) => {
+  res.send('');
+});
+
+sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
-//});
+});
+
+
+
+// app.listen(3000, () => console.log('server started'));
