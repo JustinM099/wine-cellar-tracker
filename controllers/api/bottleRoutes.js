@@ -60,6 +60,7 @@ router.get('/:id', withAuth, async (req, res) => {
 
 //POST route - create a new bottle
 router.post('/', withAuth, async (req, res) => {
+    console.log('Hit the Post Route')
     try {
         const newBottle = await Bottle.create({
             ...req.body,
