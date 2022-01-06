@@ -41,4 +41,4 @@ const editFunction = async (e) => {
         alert(`I'm sorry, we were unable to complete your request.`)
     }
 }
-document.querySelector('#edit').addEventListener('click', editFunction) //might need to change button id
+document.querySelector('.create-form').addEventListener('click', editFunction) //might need to change to button id. currently targets the form.
