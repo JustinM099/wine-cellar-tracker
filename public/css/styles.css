@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=News+Cycle&family=IM+Fell+English+SC&family=Roboto");
-body nav {
+body nav,
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
   font-family: 'IM Fell English SC', serif;
 }
 
@@ -9,6 +15,7 @@ body form {
 
 body form input,
 body form button {
+  font-family: 'Roboto', sans-serif;
   font-size: 24px;
 }
 
@@ -18,7 +25,7 @@ body .card-header {
 
 body .card-header .badge {
   font-family: 'Roboto', sans-serif;
-  font-size: 10px;
+  font-size: 12px;
   padding: 0.65em 0.65em;
   background-color: #9d61a8 !important;
 }
