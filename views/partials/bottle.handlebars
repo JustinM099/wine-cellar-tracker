@@ -1,24 +1,26 @@
-<div class='card'>
-  <div class='card-header'>
-    <span
-      class='badge rounded-pill bg-primary float-end'
-      title='Stock count'
-    >{{stock}}</span>
-    {{producer_name}}
-    {{vintage}}
-    {{wine_name}}
-  </div>
-  <div class='card-body'>
-    <h5 class='card-title mb-4'>
-      {{region}}
-      {{category.category_name}}
-    </h5>
-    <p class='card-text'><strong>Notes: </strong>
-      {{tasting_notes}}</p>
-    <p class='card-text'><strong>Reviews: </strong>
-      {{reviews}}</p>
-    <p class='card-text'><strong>Cellar location:</strong>
-      {{cellar_location}}</p>
-    <a href='/update/{{id}}' class='btn btn-primary'>Update</a>
+<div class='col-md-6 mb-4'>
+  <div class='card'>
+    <div class='card-header'>
+      <span
+        class='badge rounded-pill bg-primary float-end'
+        title='Stock count'
+      >{{stock}}</span>
+      {{producer_name}}
+      {{vintage}}
+      {{wine_name}}
+    </div>
+    <div class='card-body'>
+      <h5 class='card-title mb-4'>
+        {{region}}
+        {{category.category_name}}
+      </h5>
+      <p class='card-text'><strong>Notes: </strong>
+        {{tasting_notes}}</p>
+      <p class='card-text'><strong>Reviews: </strong>
+        {{reviews}}</p>
+      <p class='card-text'><strong>Cellar location:</strong>
+        {{cellar_location}}</p>
+      <a href='/update/{{id}}'>Update</a>
+    </div>
   </div>
 </div>
