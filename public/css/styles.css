@@ -1,11 +1,25 @@
-@import url("https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Roboto");
-body {
+@import url("https://fonts.googleapis.com/css2?family=News+Cycle&family=IM+Fell+English+SC&family=Roboto");
+body nav {
   font-family: 'IM Fell English SC', serif;
+}
+
+body form {
+  font-family: 'News Cycle', sans-serif;
 }
 
 body form input,
 body form button {
-  font-family: 'Roboto', sans-serif;
   font-size: 24px;
+}
+
+body .card-header {
+  font-family: 'IM Fell English SC', serif;
+}
+
+body .card-header .badge {
+  font-family: 'Roboto', sans-serif;
+  font-size: 10px;
+  padding: 0.65em 0.65em;
+  background-color: #9d61a8 !important;
 }
 /*# sourceMappingURL=styles.css.map */

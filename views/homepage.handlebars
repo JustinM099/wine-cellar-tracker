@@ -1,26 +1,9 @@
-{{#each bottles as |bottle|}}
-  <div class='card'>
-    <div class='card-header'>
-      {{bottle.producer_name}}
-    </div>
-    <div class='card-body'>
-      <h5 class='card-title'>
-        <span
-          class='badge rounded-pill bg-primary'
-          title='Stock count'
-        >{{bottle.stock}}</span>
-        {{bottle.vintage}}
-        {{bottle.wine_name}}
-      </h5>
-      <p>{{bottle.region}}
-        {{bottle.category.category_name}}
-      </p>
-      <p class='card-text'><strong>Notes: </strong> {{bottle.tasting_notes}}</p>
-      <p class='card-text'><strong>Reviews: </strong> {{bottle.reviews}}</p>
-      <p class='card-text'><strong>Cellar location:</strong>
-        {{bottle.cellar_location}}</p>
-      <a href='/update/{{bottle.id}}' class='btn btn-primary'>Update
-      </a>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-6'>
+      {{#each bottles as |b|}}
+        {{> bottle b}}
+      {{/each}}
     </div>
   </div>
-{{/each}}
+</div>
