@@ -1,8 +1,6 @@
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
-  event.preventDefault();
-
   const formData = new FormData(event.target);
   const formProps = Object.fromEntries(formData);
 
@@ -46,7 +44,18 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/');
+
+      const mailResponse = await fetch('/api/mail/', {
+        method: 'POST',
+        body: JSON.stringify({ username, email, password }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      // if (mailResponse.ok) {
+      console.log(mailResponse, "mailekljrl???");
+        document.location.replace('/');
+      // };
+
     } else {
       alert('Failed to sign up.');
     }
@@ -60,3 +69,4 @@ document
 document
   .querySelector('.signup-form')
   .addEventListener('submit', signupFormHandler);
+
