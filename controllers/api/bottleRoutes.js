@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
       },
     });
     const bottles = bottleData.map((bottle) => bottle.get({ plain: true }));
-    res.render('homepage', { bottles, loggedIn: true }); //TODO: insert handlebars where it says 'placeholder'
+    res.render('homepage', { bottles, loggedIn: true }); 
   } catch (err) {
     console.log('err', err);
     res.status(500).json(err);
@@ -48,7 +48,7 @@ router.get('/:id', async (req, res) => {
       return;
     }
     const bottle = bottleData.get({ plain: true });
-    res.render('placeholder', { bottle, loggedIn: true }); //TODO: insert handlebars where it says 'placeholder'
+    res.render('homepage', { bottle, loggedIn: true }); 
   } catch (err) {
     console.log('err', err);
     res.status(500).json(err);
@@ -122,8 +122,10 @@ router.delete('/:id', async (req, res) => {
       res
         .status(404)
         .json({ message: `I'm sorry, we couldn't delete that bottle.` });
-    }else{
-      res.status(200).json(deletedBottle)
+    } else {
+      if (res.ok) {
+        res.status(200).json(deletedBottle)
+      }
     }
 
   } catch (err) {
