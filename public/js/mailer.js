@@ -1,9 +1,9 @@
 const signUpForm = document.querySelector('.signup-form');
-let email = document.getElementById('email-signup');
+let email = document.getElementById('.email-signup');
 
-signUpForm.addEventListener('submit',(e)=>{
-    e.preventDefault();
-    console.log('submit clicked')
+// signUpForm.addEventListener('submit',(e)=>{
+//     e.preventDefault();
+//     console.log('submit clicked')
 
 app.post('/', (req, res) => {
 const output = `
