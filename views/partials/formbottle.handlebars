@@ -1,5 +1,5 @@
 <form class='create-form'>
-  <input type="hidden" value="{{id}}" name="id" id="bottle-id">
+  <input type='hidden' value='{{id}}' name='id' id='bottle-id' />
   <div class='mb-3'><label for='producer' class='form-label'>Producer</label>
     <input
       name='producer'
@@ -34,53 +34,54 @@
     /></div>
   <div class='mb-3'><label for='wine-type' class='form-label'>Wine Type</label>
     <select name='wine-type' class='form-control' id='wine-type'>
-      {{#select selected}}
-        <option value='Red Wine'>Red Wine</option>
-        <option value='White Wine'>White Wine</option>
-        <option value='Rose Wine'>Rose Wine</option>
-        <option selected value='Sparkling Wine'>Sparkling Wine</option>
-        <option value='Dessert Wine'>Dessert Wine</option>
-        <option value='Other'>Other</option>
-      {{/select}}
+      <option value=''></option>
+      <option value='Red Wine'>Red Wine</option>
+      <option value='White Wine'>White Wine</option>
+      <option value='Rose Wine'>Rose Wine</option>
+      <option value='Sparkling Wine'>Sparkling Wine</option>
+      <option value='Dessert Wine'>Dessert Wine</option>
+      <option value='Other'>Other</option>
+
     </select>
   </div>
   <div class='mb-3'><label for='variety' class='form-label'>Variety</label>
     <select name='variety' class='form-control' id='variety'>
-    <option value="24">Albarino</option>
-    <option value="16">Barbera</option>
-    <option value="1">Cabernet</option>
-    <option value="3">Cabernet Franc</option>
-    <option value="9">Chardonnay</option>
-    <option value="13">Chenin Blanc</option>
-    <option value="17">Dolcetto</option>
-    <option value="11">Gamay</option>
-    <option value="23">Gewurztraminer</option>
-    <option value="7">Grenache</option>
-    <option value="4">Malbec</option>
-    <option value="2">Merlot</option>
-    <option value="8">Mourvedre</option>
-    <option value="26">Muscat</option>
-    <option value="15">Nebbiolo</option>
-    <option value="5">Petit Verdot</option>
-    <option value="21">Pinot Blanc</option>
-    <option value="20">Pinot Gris</option>
-    <option value="10">Pinot Noir</option>
-    <option value="22">Riesling</option>
-    <option value="18">Sangiovese</option>
-    <option value="12">Sauvignon Blanc</option>
-    <option value="14">Semillon</option>
-    <option value="6">Syrah</option>
-    <option value="27">Tempranillo</option>
-    <option value="25">Verdejo</option>    
-    <option value="30">Sparkling</option>
-    <option value="28">Other Red</option>
-    <option value="29">Other White</option>
-    <option value="19">Other Italian Red</option>
-    <option value="31">Bordeaux Blend</option>
-    <option value="32">Rhone Blend</option>
-    <option value="33">Other Red Blend</option>
-    <option value="34">Other White Blend</option>    
-    <option value="35">Fortified/Dessert</option>
+      <option value=''></option>
+      <option value='24'>Albarino</option>
+      <option value='16'>Barbera</option>
+      <option value='1'>Cabernet</option>
+      <option value='3'>Cabernet Franc</option>
+      <option value='9'>Chardonnay</option>
+      <option value='13'>Chenin Blanc</option>
+      <option value='17'>Dolcetto</option>
+      <option value='11'>Gamay</option>
+      <option value='23'>Gewurztraminer</option>
+      <option value='7'>Grenache</option>
+      <option value='4'>Malbec</option>
+      <option value='2'>Merlot</option>
+      <option value='8'>Mourvedre</option>
+      <option value='26'>Muscat</option>
+      <option value='15'>Nebbiolo</option>
+      <option value='5'>Petit Verdot</option>
+      <option value='21'>Pinot Blanc</option>
+      <option value='20'>Pinot Gris</option>
+      <option value='10'>Pinot Noir</option>
+      <option value='22'>Riesling</option>
+      <option value='18'>Sangiovese</option>
+      <option value='12'>Sauvignon Blanc</option>
+      <option value='14'>Semillon</option>
+      <option value='6'>Syrah</option>
+      <option value='27'>Tempranillo</option>
+      <option value='25'>Verdejo</option>
+      <option value='30'>Sparkling</option>
+      <option value='28'>Other Red</option>
+      <option value='29'>Other White</option>
+      <option value='19'>Other Italian Red</option>
+      <option value='31'>Bordeaux Blend</option>
+      <option value='32'>Rhone Blend</option>
+      <option value='33'>Other Red Blend</option>
+      <option value='34'>Other White Blend</option>
+      <option value='35'>Fortified/Dessert</option>
     </select>
   </div>
   <div class='mb-3'><label for='reviews' class='form-label'>Reviews</label>
@@ -88,7 +89,7 @@
       name='reviews'
       class='form-control'
       id='reviews'
-      value='{{reviews}}''
+      value='{{reviews}}'
       type='text'
     /></div>
   <div class='mb-3'><label for='tasting-notes' class='form-label'>Tasting Notes</label>
@@ -96,7 +97,7 @@
       name='tasting-notes'
       class='form-control'
       id='tasting-notes'
-      value='{{tasting_notes}}''
+      value='{{tasting_notes}}'
       type='text'
     /></div>
   <div class='mb-3'><label for='stock' class='form-label'>Stock</label>
@@ -104,7 +105,7 @@
       name='stock'
       class='form-control'
       id='stock'
-      value='{{stock}}''
+      value='{{stock}}'
       type='text'
     /></div>
   <div class='mb-3'><label for='cellar-location' class='form-label'>Cellar
@@ -113,11 +114,11 @@
       name='cellar-location'
       class='form-control'
       id='cellar-location'
-      value='{{cellar_location}}''
+      value='{{cellar_location}}'
       type='text'
     />
   </div>
   <a class='btn btn-secondary' href='/'>Cancel</a>
   <a type='submit' class='btn btn-primary' id='update-cellar'>Update cellar</a>
-  <a type="submit" class="btn btn-primary" id="bottle-button">Add Your Bottle!</a>
+  <a type='submit' class='btn btn-primary' id='bottle-button'>Add Your Bottle!</a>
 </form>
