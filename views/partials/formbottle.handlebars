@@ -1,23 +1,50 @@
 <form class='create-form'>
-  <label for='producer'>Producer:</label>
-  <input name='producer' id='producer' type='text' />
-  <label for='wine-name'>Wine Name:</label>
-  <input name='wine-name' id='wine-name' type='text' />
-  <label for='vintage'>Vintage:</label>
-  <input name='vintage' id='vintage' type='text' />
-  <label for='region'>Region:</label>
-  <input name='region' id='region' type='text' />
-  <label for='wine-type'>Wine Type:</label>
-  <select name='wine-type' id='wine-type'>
-    <option>Red Wine</option>
-    <option>White Wine</option>
-    <option>Rose Wine</option>
-    <option>Sparkling Wine</option>
-    <option>Dessert Wine</option>
-    <option>Other</option>
-  </select>
-  <label for='variety'>Variety:</label>
-  <select name='variety' id='variety'>
+  <div class='mb-3'><label for='producer' class='form-label'>Producer</label>
+    <input
+      name='producer'
+      class='form-control'
+      id='producer'
+      value='{{producer_name}}'
+      type='text'
+    /></div>
+  <div class='mb-3'><label for='wine-name' class='form-label'>Wine Name</label>
+    <input
+      name='wine-name'
+      class='form-control'
+      id='wine-name'
+      value='{{wine_name}}'
+      type='text'
+    /></div>
+  <div class='mb-3'><label for='vintage' class='form-label'>Vintage</label>
+    <input
+      name='vintage'
+      class='form-control'
+      id='vintage'
+      value='{{vintage}}'
+      type='text'
+    /></div>
+  <div class='mb-3'><label for='region' class='form-label'>Region</label>
+    <input
+      name='region'
+      class='form-control'
+      id='region'
+      value='{{region}}'
+      type='text'
+    /></div>
+  <div class='mb-3'><label for='wine-type' class='form-label'>Wine Type</label>
+    <select name='wine-type' class='form-control' id='wine-type'>
+      {{#select selected}}
+        <option value='Red Wine'>Red Wine</option>
+        <option value='White Wine'>White Wine</option>
+        <option value='Rose Wine'>Rose Wine</option>
+        <option value='Sparkling Wine'>Sparkling Wine</option>
+        <option value='Dessert Wine'>Dessert Wine</option>
+        <option value='Other'>Other</option>
+      {{/select}}
+    </select>
+  </div>
+  <div class='mb-3'><label for='variety' class='form-label'>Variety</label>
+    <select name='variety' class='form-control' id='variety'>
     <option value="24">Albarino</option>
     <option value="16">Barbera</option>
     <option value="1">Cabernet</option>
@@ -53,14 +80,43 @@
     <option value="33">Other Red Blend</option>
     <option value="34">Other White Blend</option>    
     <option value="35">Fortified/Dessert</option>
-  </select>
-  <label for='reviews'>Reviews:</label>
-  <input name='reviews' id='reviews' type='text' />
-  <label for='tasting-notes'>Tasting Notes:</label>
-  <input name='tasting-notes' id='tasting-notes' type='text' />
-  <label for='stock'>Stock:</label>
-  <input name='stock' id='stock' type='text' />
-  <label for='cellar-location'>Cellar Location:</label>
-  <input name='cellar-location' id='cellar-location' type='text' />
-  <button type="submit" class="btn" id="bottle-button">Add Your Bottle!</button>
+    </select>
+  </div>
+  <div class='mb-3'><label for='reviews' class='form-label'>Reviews</label>
+    <input
+      name='reviews'
+      class='form-control'
+      id='reviews'
+      value='{{reviews}}''
+      type='text'
+    /></div>
+  <div class='mb-3'><label for='tasting-notes' class='form-label'>Tasting Notes</label>
+    <input
+      name='tasting-notes'
+      class='form-control'
+      id='tasting-notes'
+      value='{{tasting_notes}}''
+      type='text'
+    /></div>
+  <div class='mb-3'><label for='stock' class='form-label'>Stock</label>
+    <input
+      name='stock'
+      class='form-control'
+      id='stock'
+      value='{{stock}}''
+      type='text'
+    /></div>
+  <div class='mb-3'><label for='cellar-location' class='form-label'>Cellar
+      Location</label>
+    <input
+      name='cellar-location'
+      class='form-control'
+      id='cellar-location'
+      value='{{cellar_location}}''
+      type='text'
+    />
+  </div>
+  <a class='btn btn-secondary' href='/'>Cancel</a>
+  <a type='submit' class='btn btn-primary' id='updateCellar'>Update cellar</a>
+  <a type="submit" class="btn btn-primary" id="bottle-button">Add Your Bottle!</a>
 </form>
