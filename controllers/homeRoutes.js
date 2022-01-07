@@ -21,8 +21,8 @@ router.get('/', withAuth, async (req, res) => {
       order: [
         ['producer_name', 'ASC'],
         ['vintage', 'ASC'],
-        ['wine_name', 'ASC']
-      ]
+        ['wine_name', 'ASC'],
+      ],
     });
 
     const bottles = bottleData.map((bottle) => bottle.get({ plain: true }));
@@ -38,8 +38,8 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 router.get('/addBottle', async (req, res) => {
-  res.render("addBottle")
-})
+  res.render('addBottle');
+});
 
 router.get('/login', (req, res) => {
   // TODO: Add a comment describing the functionality of this if statement
@@ -76,9 +76,9 @@ router.get('/update/:id', withAuth, async (req, res) => {
       },
     });
 
-    console.log('bottleData!!!', bottleData);
-
     const bottle = bottleData.get({ plain: true });
+
+    console.log('bottleData!!!', bottle);
 
     res.render('editbottle', {
       bottle,
