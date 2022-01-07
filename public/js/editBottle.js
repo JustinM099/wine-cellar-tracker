@@ -7,7 +7,7 @@ const editFunction = async (e) => {
     const vintage = document.querySelector('#vintage').value
     const region = document.querySelector('#region').value
     const wine_type = document.querySelector('#wine-type').value
-    const category_id = document.querySelector('#variety').value //this isnt going to work
+    const category_id = document.querySelector('#variety').value 
     const reviews = document.querySelector('#reviews').value
     const tasting_notes = document.querySelector('#tasting-notes').value
     const stock = document.querySelector('#stock').value
@@ -28,7 +28,7 @@ const editFunction = async (e) => {
           reviews,
           wine_type,
           cellar_location,
-          category_id, //this isnt going to work
+          category_id, 
         }),
         headers: {
             'Content-Type': 'application/json'
