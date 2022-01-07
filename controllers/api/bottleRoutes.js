@@ -2,14 +2,11 @@ const router = require('express').Router()
 const { Bottle, Category, User } = require('../../models')
 const withAuth = require('../../utils/auth')
 
-//get all bottles for a user
-router.get('/'), withAuth, async (req, res) => {
+// get all bottles for a user
+router.get('/', async (req, res) => {
     try {
         console.log('GETTING BOTTLES')
         const bottleData = await Bottle.findAll({
-            where: {
-                user_id: req.session.user_id
-            },
             include: [
                 {
                     model: User,
@@ -17,9 +14,11 @@ router.get('/'), withAuth, async (req, res) => {
                 },
                 {
                     model: Category,
-                    attributes: ['id']
                 }
-            ]
+            ],            
+            where: {
+                user_id: req.session.user_id
+            },
         })
         const bottles = bottleData.map(bottle => bottle.get({ plain: true }))
         res.render('homepage', { bottles, loggedIn: true }) //TODO: insert handlebars where it says 'placeholder'
@@ -27,10 +26,10 @@ router.get('/'), withAuth, async (req, res) => {
         console.log('err', err)
         res.status(500).json(err)
     }
-}
+})
 
 //get one bottle for a user -- TODO: finish this one
-router.get('/:id', withAuth, async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
         const bottleData = await Bottle.findOne({
             where: {
@@ -59,7 +58,8 @@ router.get('/:id', withAuth, async (req, res) => {
 })
 
 //POST route - create a new bottle
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
+    console.log('Hit the Post Route')
     try {
         const newBottle = await Bottle.create({
             ...req.body,

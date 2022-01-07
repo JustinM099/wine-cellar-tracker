@@ -21,4 +21,28 @@
 //     res.send('');
 // });
 
-// app.listen(3000, () => console.log('server started'));
+// let transporter = nodemailer.createTransport({
+//     service: 'gmail',
+//     auth: {
+//         user: 'uwproject2test@gmail.com',
+//         pass: 'Password456'
+//     }
+// });
+
+// let mailOptions = {
+//     from: 'uwproject2test@gmail.com',
+//     to: '',
+//     subject: 'Welcome to Wine Cellar',
+//     text: 'Thank you for signing up!',
+//     html: '<h1>Thank you for signing up!</h1>'
+// };
+
+// transporter.sendMail(mailOptions, function(err, data){
+//     if (err) {
+//         console.log('Error');
+//     } else {
+//         console.log('email sent')
+//     }
+// });
+
+// app.listen(3001, () => console.log('server started'));
