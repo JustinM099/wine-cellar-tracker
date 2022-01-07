@@ -18,6 +18,11 @@ router.get('/', withAuth, async (req, res) => {
       where: {
         user_id: req.session.user_id,
       },
+      order: [
+        ['producer_name', 'ASC'],
+        ['vintage', 'ASC'],
+        ['wine_name', 'ASC']
+      ]
     });
 
     const bottles = bottleData.map((bottle) => bottle.get({ plain: true }));
