@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=News+Cycle&family=IM+Fell+English+SC&family=Roboto');
-
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css');
+:root {
+  --primaryColor: #9d61a8;
+}
 body {
   nav,
   h1,
@@ -20,11 +23,27 @@ body {
     }
   }
   .card-header {
+    .add-delete-bottle-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      font-size: 85%;
+      i {
+        padding: 0.1em 0.15em 0.05em;
+
+        &:hover {
+          color: var(--primaryColor);
+          border-radius: 2px;
+        }
+      }
+    }
     .badge {
       font-family: 'Roboto', sans-serif;
       font-size: 12px;
       padding: 0.65em 0.65em;
-      background-color: #9d61a8 !important;
+      background-color: var(--primaryColor) !important;
+      min-width: 28px;
     }
     font-family: 'IM Fell English SC', serif;
   }
