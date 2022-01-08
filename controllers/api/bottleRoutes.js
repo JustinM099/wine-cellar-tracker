@@ -110,6 +110,30 @@ router.put('/:id', async (req, res) => {
   }
 });
 
+//PUT route - update a bottle count
+router.put('/count/:id', async (req, res) => {
+  try {
+    var bottleCount = {
+      stock: req.body.count,
+    };
+
+    const bottle = await Bottle.update(bottleCount, {
+      where: {
+        id: req.params.id,
+      },
+    });
+    if (!bottle) {
+      req
+        .status(404)
+        .json({ message: `I'm sorry, but that bottle doesn't seem to exist.` });
+    }
+    res.json(bottle);
+  } catch (err) {
+    console.log(err);
+    res;
+  }
+});
+
 //DELETE route - delete an entire bottle
 router.delete('/:id', async (req, res) => {
   try {
