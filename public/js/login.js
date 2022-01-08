@@ -51,10 +51,8 @@ const signupFormHandler = async (event) => {
         headers: { 'Content-Type': 'application/json' },
       });
 
-      // if (mailResponse.ok) {
       console.log(mailResponse, "mailekljrl???");
-        document.location.replace('/');
-      // };
+      document.location.replace('/');
 
     } else {
       alert('Failed to sign up.');
