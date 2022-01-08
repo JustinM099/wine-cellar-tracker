@@ -114,7 +114,7 @@ router.put('/:id', async (req, res) => {
 router.put('/count/:id', async (req, res) => {
   try {
     var bottleCount = {
-      stock: req.body.count,
+      stock: req.body.stock,
     };
 
     const bottle = await Bottle.update(bottleCount, {
