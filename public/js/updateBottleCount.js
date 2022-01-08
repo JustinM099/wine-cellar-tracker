@@ -1,15 +1,16 @@
 const updateBottleHandler = async (stock, id) => {
   try {
-    console.log('stock', stock, 'id', id);
-
-    if (stock) {
-      console.log('about to fetch', stock, 'for bottle id', id);
-      const response = await fetch(`/api/bottle/count/:${id}`, {
+    if (stock > -1) {
+      await fetch(`/api/bottle/count/${id}`, {
         method: 'PUT',
         body: JSON.stringify({ stock }),
         headers: { 'Content-Type': 'application/json' },
       });
-      console.log('response', response);
+      document.getElementById(id).innerHTML = `${stock}`;
+      let targetArray = document.querySelectorAll(`[data-id='${id}']`);
+      targetArray.forEach((el) => {
+        el.setAttribute('data-stock', stock);
+      });
     }
   } catch (err) {
     console.log(err);
