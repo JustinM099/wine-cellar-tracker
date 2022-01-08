@@ -147,9 +147,7 @@ router.delete('/:id', async (req, res) => {
         .status(404)
         .json({ message: `I'm sorry, we couldn't delete that bottle.` });
     } else {
-      if (res.ok) {
         res.status(200).json(deletedBottle)
-      }
     }
 
   } catch (err) {

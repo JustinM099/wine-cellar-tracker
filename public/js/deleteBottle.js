@@ -2,11 +2,6 @@ const deleteFunction = async (e) => {
     e.preventDefault()
 
     const id = document.querySelector('#bottle-id').value
-    // const route = window.location.pathname
-    // const routeString = route.toString()
-    // const idString = routeString.slice(-1)
-    // const id = parseInt(idString)
-    // console.log(route)
     console.log(id)
 
 
@@ -19,7 +14,9 @@ const deleteFunction = async (e) => {
             'Content-Type': 'application/json'
         }
     })
+    console.log(res)
     if (res.ok) {
+        console.log('THE RES IS OK')
         document.location.replace('/')
     } else {
         console.log(res.status)
@@ -27,4 +24,4 @@ const deleteFunction = async (e) => {
     }
 }
 
-document.querySelector('#delete-bottle').addEventListener('click', deleteFunction) //might need to change button name   
+document.querySelector('#delete-bottle').addEventListener('click', deleteFunction)
