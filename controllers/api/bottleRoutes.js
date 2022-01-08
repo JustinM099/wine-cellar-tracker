@@ -127,10 +127,10 @@ router.put('/count/:id', async (req, res) => {
         .status(404)
         .json({ message: `I'm sorry, but that bottle doesn't seem to exist.` });
     }
-    res.json(bottle);
+    res.status(200).json(bottle);
   } catch (err) {
     console.log(err);
-    res;
+    res.status(500).json(err);
   }
 });
 
