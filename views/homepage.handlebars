@@ -1,8 +1,18 @@
 <div class='container'>
   <div class='row'>
-    {{#each bottles as |b|}}
-    {{> bottle b}}
-    {{/each}}
+    {{#if bottles}}
+      {{#each bottles as |b|}}
+      {{> bottle b}}
+      {{/each}}
+    {{else}}
+      <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+          <h1 class="display-5 fw-bold">Welcome to Wine Cellar Tracker</h1>
+          <p class="col-md-8 fs-4">Keep track of you bottle inventory.</p>
+          <a class="btn btn-primary btn-lg" type="button" href='/add'>Add to cellar</a>
+        </div>
+      </div>
+    {{/if}}
   </div>
 </div>
 <script src='/js/updateBottleCount.js'></script>
