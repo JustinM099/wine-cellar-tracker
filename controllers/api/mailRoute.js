@@ -16,38 +16,32 @@ router.post('/', (req, res) => {
   // create reusable transporter object using the default SMTP transport
   async function main() {
     let transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
+      host: 'smtp.gmail.com',
       port: 587,
       secure: false, // true for 465, false for other ports
       auth: {
-        user: 'uwproject2test@gmail.com', // generated ethereal user
+        user: 'Project2testUW@gmail.com', // generated ethereal user
         pass: 'Password456', // generated ethereal password
       },
       tls: {
-        rejectUnathorized: false
-      }
+        rejectUnathorized: false,
+      },
     });
 
     // send mail with defined transport object
     let info = await transporter.sendMail({
       from: '"Nodemailer Contact" <uwproject2test@gmail.com>', // sender address
-      to: req.body.email,  // list of receivers, we are just using the same email address
-      subject: "Welcome to your online wine cellar", // Subject line
-      text: "Thank you for using wine cellar", // plain text body
+      to: req.body.email, // list of receivers, we are just using the same email address
+      subject: 'Welcome to your online wine cellar', // Subject line
+      text: 'Thank you for using wine cellar', // plain text body
       html: output, // html body
-
-
-    }
-    );
-    console.log(req.body.email, "email hit?");
+    });
+    console.log(req.body.email, 'email hit?');
 
     res.status(200).json(info);
-
-
   }
 
   main().catch(console.error);
-
 });
 
 module.exports = router;
