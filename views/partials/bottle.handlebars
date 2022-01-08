@@ -1,10 +1,17 @@
-<div class='col-md-6 mb-4'>
+<div class='col-lg-4 col-md-6 mb-4'>
   <div class='card'>
     <div class='card-header'>
-      <span
-        class='badge rounded-pill bg-primary float-end'
-        title='Stock count'
-      >{{stock}}</span>
+      <span class='float-end'>
+        <span class='float-end ms-2 add-delete-bottle-group'>
+          <i class='bottle-add bi bi-caret-up-fill'></i>
+          <i class='bottle-delete bi bi-caret-down-fill'></i>
+        </span>
+
+        <span
+          class='badge rounded-pill bg-primary'
+          title='Stock count'
+        >{{stock}}</span>
+      </span>
       {{producer_name}}
       {{vintage}}
       {{wine_name}}
