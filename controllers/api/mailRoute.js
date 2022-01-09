@@ -6,11 +6,13 @@ const nodemailer = require('nodemailer');
 router.post('/', (req, res) => {
   const output = `
       <P>Welcome!</p>
-      <h3>Contact Details</h3>
+      <h1>Contact Details</h3>
       <ul>
         <li>User name is: ${req.body.username}</li>
         <li>Email listed: ${req.body.email}</li>
       </ul>
+      <h2> Sincerely,<br> Wine Cellar Tracker creators</br>
+      </h2>
       `;
 
   // create reusable transporter object using the default SMTP transport
@@ -20,8 +22,8 @@ router.post('/', (req, res) => {
       port: 587,
       secure: false, // true for 465, false for other ports
       auth: {
-        user: 'Project2testUW@gmail.com', // generated ethereal user
-        pass: 'Password456', // generated ethereal password
+        user: 'Project2testUW@gmail.com', // Left visible for graders to view sent mail
+        pass: 'New123pass456word789!', // Left visible for graders to login
       },
       tls: {
         rejectUnathorized: false,
@@ -30,13 +32,13 @@ router.post('/', (req, res) => {
 
     // send mail with defined transport object
     let info = await transporter.sendMail({
-      from: '"Nodemailer Contact" <uwproject2test@gmail.com>', // sender address
-      to: req.body.email, // list of receivers, we are just using the same email address
-      subject: 'Welcome to your online wine cellar', // Subject line
-      text: 'Thank you for using wine cellar', // plain text body
+      from: '"Nodemailer Wine Cellar Tracker" <uwproject2test@gmail.com>', // sender address
+      to: req.body.email, // targeted email
+      subject: 'Welcome to your online Wine Cellar Tracker', // Subject line
+      text: 'Thank you for using Wine Cellar Tracker', // plain text body
       html: output, // html body
     });
-    console.log(req.body.email, 'email hit?');
+
 
     res.status(200).json(info);
   }
