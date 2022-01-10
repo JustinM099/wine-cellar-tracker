@@ -5,14 +5,14 @@ const nodemailer = require('nodemailer');
 // Would like to send email after they have entered contents of cellar
 router.post('/', (req, res) => {
   const output = `
-      <P>Welcome!</p>
+      <h1>Welcome!</h1>
       <h1>Contact Details</h3>
       <ul>
         <li>User name is: ${req.body.username}</li>
         <li>Email listed: ${req.body.email}</li>
       </ul>
-      <h2> Sincerely,<br> Wine Cellar Tracker creators</br>
-      </h2>
+      <h2> Sincerely,</h2> 
+      <p>Wine Cellar Tracker creators</p>
       `;
 
   // create reusable transporter object using the default SMTP transport
