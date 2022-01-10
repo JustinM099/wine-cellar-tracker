@@ -41,6 +41,7 @@ Each bottle has specific inventory location
 ## Technologies Used
 
 * HTML
+* Bootstrap
 * CSS
 * JavaScript
 * MySQL
