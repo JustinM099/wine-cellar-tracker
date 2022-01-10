@@ -1,7 +1,18 @@
-# wine-cellar-tracker
+# Bottles DB - A Wine Cellar Tracker
 --------------------
 
-## Team Members
+  ## Table of Contents
+  1. [Team Members](#team)
+  2. [About Project](#about)
+  3. [Screenshot](#screenshot)
+  4. [Technologies Used](#technologies)
+  5. [User Criteria](#criteria)
+  6. [Deployed Version](#deployment)
+  7.
+  
+--------------------
+
+## Team
 
 - Brian Tracy
 - Justin Meredith
@@ -10,7 +21,7 @@
 
 --------------------
 
-## About Project 
+## About
 
 Create a user profile that you will need to login into to gain access, email will be sent user to confirming user name / email.
 Once you are allowed access, you are able to list your wine inventory to your profile
@@ -20,7 +31,7 @@ Each bottle has specific inventory location
 --------------------
 
 
-## Image Preview
+## Screenshot
 
 <img src = "./public/images/Login.png">
 
@@ -32,17 +43,19 @@ Each bottle has specific inventory location
 * HTML
 * CSS
 * JavaScript
-* JQuery
+* MySQL
+* Express.js
 * Node Packages -sequelize
     - mysql
     - util
     - handlebars
     - express
     - socket.io
-
+    - nodemailer
+    
 --------------------
 
-## User Criteria
+## Criteria
 
 * Use Node.js and Express.js to create a RESTful API.
 ​
@@ -127,3 +140,22 @@ Each bottle has specific inventory location
 * The URL of the GitHub repository, with a unique name and a README describing the project.
 
 --------------------
+
+## Deployment
+
+This project is deployed on Heroku. You may reach it by navigating to https://bottles-db.herokuapp.com/
+
+The Github repository is available at https://github.com/JustinM099/wine-cellar-tracker
+
+--------------------
+
+## Questions
+
+We hope you like the project! Please feel free to reach out to any of us at our Github profiles:
+
+Justin Meredith: https://github.com/JustinM099
+Brian Tracy: https://github.com/bravotango
+Daesang Ogle: https://github.com/deashawnogle
+Nikko Ganacias: https://github.com/neex18
+
+Thank you!
