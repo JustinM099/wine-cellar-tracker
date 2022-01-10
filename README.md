@@ -8,7 +8,7 @@
   4. [Technologies Used](#technologies)
   5. [User Criteria](#criteria)
   6. [Deployed Version](#deployment)
-  7.
+  7. [Questions](#questions)
   
 --------------------
 
@@ -45,14 +45,13 @@ Each bottle has specific inventory location
 * JavaScript
 * MySQL
 * Express.js
-* Node Packages -sequelize
-    - mysql
+* Node Packages   
+    - sequelize
     - util
     - handlebars
-    - express
     - socket.io
     - nodemailer
-    
+    - bcrypt
 --------------------
 
 ## Criteria
@@ -153,9 +152,9 @@ The Github repository is available at https://github.com/JustinM099/wine-cellar-
 
 We hope you like the project! Please feel free to reach out to any of us at our Github profiles:
 
-Justin Meredith: https://github.com/JustinM099
-Brian Tracy: https://github.com/bravotango
-Daesang Ogle: https://github.com/deashawnogle
-Nikko Ganacias: https://github.com/neex18
+* Justin Meredith: https://github.com/JustinM099
+* Brian Tracy: https://github.com/bravotango
+* Daesang Ogle: https://github.com/deashawnogle
+* Nikko Ganacias: https://github.com/neex18
 
 Thank you!
