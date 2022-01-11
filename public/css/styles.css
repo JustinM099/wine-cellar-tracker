@@ -4,6 +4,12 @@
   --primaryColor: #9d61a8;
 }
 
+body form {
+  font-family: 'News Cycle', sans-serif;
+}
+
+body button,
+body a.btn,
 body nav,
 body h1,
 body h2,
@@ -12,16 +18,6 @@ body h4,
 body h5,
 body h6 {
   font-family: 'IM Fell English SC', serif;
-}
-
-body form {
-  font-family: 'News Cycle', sans-serif;
-}
-
-body form input,
-body form button {
-  font-family: 'Roboto', sans-serif;
-  font-size: 24px;
 }
 
 body .card-header {
