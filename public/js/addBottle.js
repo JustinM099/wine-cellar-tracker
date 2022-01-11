@@ -8,8 +8,8 @@ const newBottle = async (e) => {
     const wine_name = document.querySelector('#wine-name').value
     const vintage = document.querySelector('#vintage').value
     const region = document.querySelector('#region').value
-    const wine_type = document.querySelector('#wine-type').value //this isnt working
-    const category_id = document.querySelector('#variety').value //this isnt going to work
+    const wine_type = document.querySelector('#wine-type').value 
+    const category_id = document.querySelector('#variety').value 
     const reviews = document.querySelector('#reviews').value
     const tasting_notes = document.querySelector('#tasting-notes').value
     const stock = document.querySelector('#stock').value
@@ -42,7 +42,7 @@ const newBottle = async (e) => {
             alert(`I'm sorry, we were unable to create your bottle. Please try again.`);
         }
     } else {
-        console.log('Houston, we have a problem.', 
+        console.log('Houston, we have a problem.',
         'producer name:', producer_name,
         'wine_type:', wine_type,
         'category_id', category_id,

@@ -1,60 +1,127 @@
 <html lang='en'>
-  <head>
-    <meta charset='UTF-8' />
-    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
-    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <!-- Bootstrap CSS -->
-    <link
-      href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css'
-      rel='stylesheet'
-      integrity='sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3'
-      crossorigin='anonymous'
-    />
-    <link rel='stylesheet' href='/css/styles.css' />
 
-    <title>Wine Cellar Tracker</title>
-    <link rel='icon' type='image/x-icon' href='/favicon.ico' />
-  </head>
-  <body>
-    <nav class='navbar navbar-light bg-light px-3'>
+<head>
+  <meta charset='UTF-8' />
+  <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+  <!-- Bootstrap CSS -->
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet'
+    integrity='sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3' crossorigin='anonymous' />
+  <link rel='stylesheet' href='/css/styles.css' />
 
-      <a class='navbar-brand' href='/'>
-        <img
-          src='/images/logo.png'
-          alt='wine logo'
-          height='24'
-          class='d-inline-block align-text-top'
-        />
-        Wine Cellar Tracker
-      </a>
+  <title>Wine Cellar Tracker</title>
+  <link rel='icon' type='image/x-icon' href='/favicon.ico' />
+</head>
 
-      <div>
-        {{#if logged_in}}
-          <a class='btn-no-style' href='/add'>Add to cellar</a>
-          <a id='logout' class='btn-no-style'>Logout</a>
-        {{else}}
-          <a href='/login'>Login</a>
-        {{/if}}
+<body>
+  <nav class='navbar navbar-light bg-light px-3'>
+
+    <a class='navbar-brand' href='/'>
+      <img src='/images/logo.png' alt='wine logo' height='24' class='d-inline-block align-text-top' />
+      Wine Cellar Tracker
+    </a>
+
+    <div>
+      {{#if logged_in}}
+      <a class='btn btn-secondary nav-item d-inline-block my-2' href='/add'>Add to cellar</a>
+      <a id='logout' class='btn btn-secondary nav-item d-inline-block my-2'>Logout</a>
+      {{else}}
+      <a href='/login'>Login</a>
+      {{/if}}
+    </div>
+  </nav>
+
+  {{#if logged_in}}
+  <div class="wrapper">
+    <nav class="navbar">
+      <div class="container">
+        <form action="/api/bottle/filter/producer" class="d-inline-block my-2 my-lg-0">
+          <input name="term" class="form-control mr-sm-2 d-inline-block" type="search" placeholder="Search By Producer"
+            aria-label="Search">
+          <span class="input-group-button">
+            <button class="btn btn-secondary my-2 my-sm-0 d-inline" type="submit">Search</button>
+          </span>
+        </form>
+        <form action="/api/bottle/filter/wine-type" class="d-inline-block my-2 my-lg-0">
+          <select name='term' class='form-control mr-sm-2 d-inline-block'
+            placeholder="Search By Wine Type">
+            <option value=''>Search By Wine Type</option>
+            <option value='Red Wine'>Red Wine</option>
+            <option value='White Wine'>White Wine</option>
+            <option value='Rose Wine'>Rose Wine</option>
+            <option value='Sparkling Wine'>Sparkling Wine</option>
+            <option value='Dessert Wine'>Dessert Wine</option>
+            <option value='Other'>Other</option>
+          </select>
+          <span class="input-group-button">
+            <button class="btn btn-secondary my-2 my-sm-0 d-inline-block" type="submit">Search</button>
+          </span>
+        </form>
+        <form action="/api/bottle/filter/category" class="d-inline-block my-2 my-lg-0">
+          <select name='term' class='form-control mr-sm-2 d-inline-block'>
+            <option value=''>Search By Varietal</option>
+            <option value='24'>Albarino</option>
+            <option value='16'>Barbera</option>
+            <option value='1'>Cabernet</option>
+            <option value='3'>Cabernet Franc</option>
+            <option value='9'>Chardonnay</option>
+            <option value='13'>Chenin Blanc</option>
+            <option value='17'>Dolcetto</option>
+            <option value='11'>Gamay</option>
+            <option value='23'>Gewurztraminer</option>
+            <option value='7'>Grenache</option>
+            <option value='4'>Malbec</option>
+            <option value='2'>Merlot</option>
+            <option value='8'>Mourvedre</option>
+            <option value='26'>Muscat</option>
+            <option value='15'>Nebbiolo</option>
+            <option value='5'>Petit Verdot</option>
+            <option value='21'>Pinot Blanc</option>
+            <option value='20'>Pinot Gris</option>
+            <option value='10'>Pinot Noir</option>
+            <option value='22'>Riesling</option>
+            <option value='18'>Sangiovese</option>
+            <option value='12'>Sauvignon Blanc</option>
+            <option value='14'>Semillon</option>
+            <option value='6'>Syrah</option>
+            <option value='27'>Tempranillo</option>
+            <option value='25'>Verdejo</option>
+            <option value='30'>Sparkling</option>
+            <option value='28'>Other Red</option>
+            <option value='29'>Other White</option>
+            <option value='19'>Other Italian Red</option>
+            <option value='31'>Bordeaux Blend</option>
+            <option value='32'>Rhone Blend</option>
+            <option value='33'>Other Red Blend</option>
+            <option value='34'>Other White Blend</option>
+            <option value='35'>Fortified/Dessert</option>
+          </select>
+          <span class="input-group-button">
+            <button class="btn btn-secondary my-2 my-sm-0 d-inline-block" type="submit">Search</button>
+          </span>
+        </form>
       </div>
     </nav>
-    <main class='container pt-4'>
-      <!-- Content here -->
-      {{{body}}}
-    </main>
+  </div>
+  {{/if}}
 
-    <footer class='container pt-4 text-center'>
-      &copy;
-      <script>document.write(new Date().getFullYear());</script>
-      Wine Cellar Tracker
-    </footer>
+  <main class='container pt-4'>
+    <!-- Content here -->
+    {{{body}}}
+  </main>
 
-    <script
-      src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js'
-      integrity='sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p'
-      crossorigin='anonymous'
-    ></script>
-    {{#if logged_in}}
-      <script src='/js/logout.js'></script>
-    {{/if}}
-  </body>
+  <footer class='container pt-4 text-center'>
+    &copy;
+    <script>document.write(new Date().getFullYear());</script>
+    Wine Cellar Tracker
+  </footer>
+
+  <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js'
+    integrity='sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p'
+    crossorigin='anonymous'></script>
+  {{#if logged_in}}
+  <script src='/js/logout.js'></script>
+  {{/if}}
+</body>
+
 </html>
