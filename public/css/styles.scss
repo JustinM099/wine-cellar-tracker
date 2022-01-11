@@ -4,6 +4,11 @@
   --primaryColor: #9d61a8;
 }
 body {
+  form {
+    font-family: 'News Cycle', sans-serif;
+  }
+  button,
+  a.btn,
   nav,
   h1,
   h2,
@@ -12,15 +17,6 @@ body {
   h5,
   h6 {
     font-family: 'IM Fell English SC', serif;
-  }
-  form {
-    font-family: 'News Cycle', sans-serif;
-
-    input,
-    button {
-      font-family: 'Roboto', sans-serif;
-      font-size: 24px;
-    }
   }
   .card-header {
     .add-delete-bottle-group {
