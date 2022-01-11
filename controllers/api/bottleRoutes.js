@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { Bottle, Category, User } = require('../../models');
 const withAuth = require('../../utils/auth');
+const Sequelize = require('sequelize')
+const Op = Sequelize.Op
 
 // get all bottles for a user
 router.get('/', async (req, res) => {
@@ -17,11 +19,12 @@ router.get('/', async (req, res) => {
         },
       ],
       where: {
-        user_id: req.session.user_id,
+        // user_id: req.session.user_id,
       },
     });
     const bottles = bottleData.map((bottle) => bottle.get({ plain: true }));
     res.render('homepage', { bottles, loggedIn: true }); 
+    // res.json(bottles)
   } catch (err) {
     console.log('err', err);
     res.status(500).json(err);
@@ -29,31 +32,32 @@ router.get('/', async (req, res) => {
 });
 
 //get one bottle for a user -- TODO: finish this one
-router.get('/:id', async (req, res) => {
-  try {
-    const bottleData = await Bottle.findOne({
-      where: {
-        id: req.params.id,
-        user_id: req.session.user_id, //ensure that each user gets their own bottles
-      },
-      include: [
-        {
-          model: User,
-          attributes: ['id', 'username'],
-        },
-      ],
-    });
-    if (!bottleData) {
-      res.status(404).json({ message: 'No such bottle. Maybe you lost it?' });
-      return;
-    }
-    const bottle = bottleData.get({ plain: true });
-    res.render('homepage', { bottle, loggedIn: true }); 
-  } catch (err) {
-    console.log('err', err);
-    res.status(500).json(err);
-  }
-});
+// router.get('/:id', async (req, res) => {
+//   try {
+//     const bottleData = await Bottle.findOne({
+//       where: {
+//         id: req.params.id,
+//         // user_id: req.session.user_id, //ensure that each user gets their own bottles
+//       },
+//       include: [
+//         {
+//           model: User,
+//           attributes: ['id', 'username'],
+//         },
+//       ],
+//     });
+//     if (!bottleData) {
+//       res.status(404).json({ message: 'No such bottle. Maybe you lost it?' });
+//       return;
+//     }
+//     const bottle = bottleData.get({ plain: true });
+//     // res.render('homepage', { bottle, loggedIn: true }); 
+//     res.json(bottle)
+//   } catch (err) {
+//     console.log('err', err);
+//     res.status(500).json(err);
+//   }
+// });
 
 //POST route - create a new bottle
 router.post('/', async (req, res) => {
@@ -152,6 +156,141 @@ router.delete('/:id', async (req, res) => {
 
   } catch (err) {
     console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+
+//get routes for filtered results
+
+//get route for filter by producer_name
+router.get('/filter/producer', withAuth, async (req, res) => {
+  try {
+    console.log('GETTING BOTTLES');
+    let { term } = req.query
+    const bottleData = await Bottle.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['id', 'username'],
+        },
+        {
+          model: Category,
+        },
+      ],
+      where:
+        // filterParams
+        {
+          producer_name: { [Op.like]: '%' + term + '%'}
+        }
+    }
+    );
+    const bottles = bottleData.map((bottle) => bottle.get({ plain: true }));
+    res.render('filtered', { 
+      bottles, 
+      logged_in: req.session.logged_in,}); 
+    // res.json(bottles)
+  } catch (err) {
+    console.log('err', err);
+    res.status(500).json(err);
+  }
+});
+
+//get route for filter by wine type
+router.get('/filter/wine-type', withAuth, async (req, res) => {
+  try {
+    console.log('GETTING BOTTLES');
+    let { term } = req.query
+    const bottleData = await Bottle.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['id', 'username'],
+        },
+        {
+          model: Category,
+        },
+      ],
+      where:
+        // filterParams
+        {
+          wine_type: { [Op.like]: '%' + term + '%'}
+        }
+    }
+    );
+    const bottles = bottleData.map((bottle) => bottle.get({ plain: true }));
+    res.render('filtered', { 
+      bottles, 
+      logged_in: req.session.logged_in,}); 
+    // res.json(bottles)
+  } catch (err) {
+    console.log('err', err);
+    res.status(500).json(err);
+  }
+});
+
+//get route for filter by vintage
+router.get('/filter/vintage', withAuth, async (req, res) => {
+  try {
+    console.log('GETTING BOTTLES');
+    let { term } = req.query
+    const bottleData = await Bottle.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['id', 'username'],
+        },
+        {
+          model: Category,
+        },
+      ],
+      where:
+        // filterParams
+        {
+          vintage: { [Op.like]: '%' + term + '%'}
+        }
+    }
+    );
+    const bottles = bottleData.map((bottle) => bottle.get({ plain: true }));
+    res.render('filtered', { 
+      bottles, 
+      logged_in: req.session.logged_in,}); 
+    // res.json(bottles)
+  } catch (err) {
+    console.log('err', err);
+    res.status(500).json(err);
+  }
+});
+
+//get route for filter by category
+router.get('/filter/category', withAuth, async (req, res) => {
+  try {
+    console.log('GETTING BOTTLES');
+    let { term } = req.query
+    const bottleData = await Bottle.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['id', 'username'],
+        },
+        {
+          model: Category,
+        },
+      ],
+      where:
+        // filterParams
+        {
+          category_id: { [Op.like]: '%' + term + '%'}
+        }
+    }
+    );
+    const bottles = bottleData.map((bottle) => bottle.get({ plain: true }));
+    res.render('filtered', { 
+      bottles, 
+      logged_in: req.session.logged_in,}); 
+    // res.json(bottles)
+  } catch (err) {
+    console.log('err', err);
     res.status(500).json(err);
   }
 });
