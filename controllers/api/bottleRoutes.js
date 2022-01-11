@@ -280,7 +280,7 @@ router.get('/filter/category', withAuth, async (req, res) => {
       where:
         // filterParams
         {
-          category_id: { [Op.like]: '%' + term + '%'}
+          category_id: { [Op.like]: term }
         }
     }
     );
