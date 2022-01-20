@@ -17,8 +17,8 @@
     <link rel='icon' type='image/x-icon' href='/favicon.ico' />
   </head>
 
-  <body>
-    <nav class='navbar navbar-light bg-light px-3'>
+  <body class="bg-dark text-white">
+    <nav class='navbar navbar-dark bg-dark px-3'>
 
       <a class='navbar-brand' href='/'>
         <img
@@ -41,7 +41,6 @@
             class='btn btn-secondary nav-item d-inline-block my-2'
           >Logout</a>
         {{else}}
-          <a href='/login'>Login</a>
         {{/if}}
       </div>
     </nav>
@@ -50,7 +49,7 @@
 
       <div class='container'>
         <div class='row'>
-          <div class='col-md-4'>
+          <div class='col-md-3'>
             <form action='/api/bottle/filter/producer'>
               <div class='input-group mb-3'>
 
@@ -68,7 +67,25 @@
             </form>
           </div>
 
-          <div class='col-md-4'>
+          <div class='col-md-3'>
+            <form action='/api/bottle/filter/region'>
+              <div class='input-group mb-3'>
+
+                <input
+                  name='term'
+                  type='text'
+                  class='form-control'
+                  placeholder='Search By Region'
+                />
+                <button
+                  class='btn btn-outline-secondary'
+                  type='submit'
+                >Search</button>
+              </div>
+            </form>
+          </div>
+
+          <div class='col-md-3'>
             <form action='/api/bottle/filter/wine-type'>
               <div class='input-group mb-3'>
 
@@ -90,7 +107,7 @@
             </form>
           </div>
 
-          <div class='col-md-4'>
+          <div class='col-md-3'>
             <form action='/api/bottle/filter/category'>
               <div class='input-group mb-3'>
                 <select name='term' class='form-control'>
@@ -153,7 +170,7 @@
     <footer class='container pt-4 text-center'>
       &copy;
       <script>document.write(new Date().getFullYear());</script>
-      Wine Cellar Tracker
+      Bottles DB
     </footer>
 
     <script

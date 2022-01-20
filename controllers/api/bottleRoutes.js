@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
         },
       ],
       where: {
-        // user_id: req.session.user_id,
+        user_id: req.session.user_id,
       },
     });
     const bottles = bottleData.map((bottle) => bottle.get({ plain: true }));
@@ -30,34 +30,6 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-//get one bottle for a user -- TODO: finish this one
-// router.get('/:id', async (req, res) => {
-//   try {
-//     const bottleData = await Bottle.findOne({
-//       where: {
-//         id: req.params.id,
-//         // user_id: req.session.user_id, //ensure that each user gets their own bottles
-//       },
-//       include: [
-//         {
-//           model: User,
-//           attributes: ['id', 'username'],
-//         },
-//       ],
-//     });
-//     if (!bottleData) {
-//       res.status(404).json({ message: 'No such bottle. Maybe you lost it?' });
-//       return;
-//     }
-//     const bottle = bottleData.get({ plain: true });
-//     // res.render('homepage', { bottle, loggedIn: true }); 
-//     res.json(bottle)
-//   } catch (err) {
-//     console.log('err', err);
-//     res.status(500).json(err);
-//   }
-// });
 
 //POST route - create a new bottle
 router.post('/', async (req, res) => {
@@ -181,7 +153,42 @@ router.get('/filter/producer', withAuth, async (req, res) => {
       where:
         // filterParams
         {
-          producer_name: { [Op.like]: '%' + term + '%'}
+          producer_name: { [Op.like]: '%' + term + '%'},
+          user_id: req.session.user_id,
+        }
+    }
+    );
+    const bottles = bottleData.map((bottle) => bottle.get({ plain: true }));
+    res.render('filtered', { 
+      bottles, 
+      logged_in: req.session.logged_in,}); 
+    // res.json(bottles)
+  } catch (err) {
+    console.log('err', err);
+    res.status(500).json(err);
+  }
+});
+
+//get route for filter by region
+router.get('/filter/region', withAuth, async (req, res) => {
+  try {
+    console.log('GETTING BOTTLES');
+    let { term } = req.query
+    const bottleData = await Bottle.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['id', 'username'],
+        },
+        {
+          model: Category,
+        },
+      ],
+      where:
+        // filterParams
+        {
+          region: { [Op.like]: '%' + term + '%'},
+          user_id: req.session.user_id,
         }
     }
     );
@@ -214,7 +221,8 @@ router.get('/filter/wine-type', withAuth, async (req, res) => {
       where:
         // filterParams
         {
-          wine_type: { [Op.like]: '%' + term + '%'}
+          wine_type: { [Op.like]: '%' + term + '%'},
+          user_id: req.session.user_id,
         }
     }
     );
@@ -247,7 +255,8 @@ router.get('/filter/vintage', withAuth, async (req, res) => {
       where:
         // filterParams
         {
-          vintage: { [Op.like]: '%' + term + '%'}
+          vintage: { [Op.like]: '%' + term + '%'},
+          user_id: req.session.user_id,
         }
     }
     );
@@ -267,6 +276,8 @@ router.get('/filter/category', withAuth, async (req, res) => {
   try {
     console.log('GETTING BOTTLES');
     let { term } = req.query
+    let { user_id } = req.session
+    console.log('TERM: ', term, 'USER ID: ', user_id)
     const bottleData = await Bottle.findAll({
       include: [
         {
@@ -280,7 +291,8 @@ router.get('/filter/category', withAuth, async (req, res) => {
       where:
         // filterParams
         {
-          category_id: { [Op.like]: term }
+          category_id: { [Op.like]: term },
+          user_id: { [Op.like]: user_id },
         }
     }
     );
