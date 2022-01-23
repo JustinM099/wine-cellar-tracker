@@ -37,6 +37,41 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
+router.get('/vintage', withAuth, async (req, res) => {
+  try {
+    const bottleData = await Bottle.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['id', 'username'],
+        },
+        {
+          model: Category,
+        },
+      ],
+      where: {
+        user_id: req.session.user_id,
+      },
+      order: [        
+        ['vintage', 'ASC'],
+        ['producer_name', 'ASC'],
+        ['wine_name', 'ASC'],
+      ],
+    });
+
+    const bottles = bottleData.map((bottle) => bottle.get({ plain: true }));
+
+    res.render('homepage', {
+      bottles,
+      // TODO: Add a comment describing the functionality of this property
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
 router.get('/addBottle', async (req, res) => {
   res.render('addBottle');
 });
